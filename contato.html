@@ -1,0 +1,63 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="header">
+        <h3>CONTATO</h3>
+        <p>
+            Se tiver alguma duvida, sugestão ou interesse em algum dos nossos cursos, <br>converse com a equipe de atendimento!
+        </p>
+        
+        <a href="http://api.whatsapp.com/send?phone=5542999371814" target="_blank">
+            Atendimento via Whatsapp
+        </a>
+    </div>
+
+    <div class="card">
+        <form action="/action/destino" method="get">
+            <div class="form-group">
+                <label>Nome</label>
+                <input type="text" placeholder="Nome*" name="nome" required>
+            </div>
+
+            <div class="form-group">
+                <label>E-mail</label>
+                <input type="text" placeholder="E-mail*" name="email" required>
+            </div>
+
+            <div class="form-group">
+                <label>Telefone</label>
+                <input type="text" placeholder="Telefone*" name="telefone" required>
+            </div>
+
+            <div class="form-group">
+                <label>Cidade</label>
+                <input type="text" placeholder="Cidade*" name="cidade" required>
+            </div>
+
+            <div class="form-group">
+                <label>Opções de curso</label>
+                <select name="curso">
+                    <option value="python"> Programação Python </option>
+                    <option value="react"> React JS </option>
+                    <option value="java"> Java Full Stack </option>
+                    <option value="php"> PHP + Laravel </option>
+                    <option value="design"> Design Gráfico </option>
+                </select>
+            </div>
+
+            <div class="form-group">  
+                <label>Mensagem</label>
+                <textarea name ="mensagem"></textarea>
+            </div>
+
+            <button type="submit">Enviar </button>
+        </form>
+    </div>
+</body>
+</html>
