@@ -1,0 +1,56 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.css')}}">
+    <title>Relatório</title>
+</head>
+<body>
+    <div class="container">
+        {% with mensagens = get_flashed_messages() %}
+            <ul class="list-unstyled">
+                {% for msg in mensagens %}
+                    <li class="alert alert-success">{{msg}}</li>
+                {% endfor %}
+            </ul>
+        {% endwith %}
+        <div class="page-header">
+            <h1>{{titulo|title}}</h1> <!-- {{jinja}} -->
+        </div>
+
+        <table class="table table-striped table-responsive table-bordered table-dark">
+            <thead>
+                <tr>
+                    <th>Código</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Quant. estoque</th>
+                    <th></th>
+                </tr>
+            </thead>
+
+            <tbody>
+                 {% for produto in produtos %}
+                <tr>
+                    <td>{{produto.id}}</td>
+                    <td>{{produto.descricao}}</td>
+                    <td>{{produto.preco}}</td>
+                    <td>{{produto.quantidade}}</td>
+                    <td>
+                        <a href="{{url_for('editar', id=produto.id) }}">Editar</a>
+                        <a href="{{url_for('deletar', id=produto.id) }}">Deletar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <form action="{{url_for('cadastrar')}}" method="get">
+            <button type="submit" class="btn btn-primary">Cadastrar</button>
+        </form>
+         <a href="/logout">Logout</a>
+    </div>
+</body>
+</html>

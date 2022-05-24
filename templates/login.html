@@ -1,0 +1,33 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+     <link rel="stylesheet" href="{{url_for('static', filename='bootstrap.css')}}">
+    <title>Login</title>
+</head>
+<body>
+    <div class="container">
+
+        {% with mensagens = get_flashed_messages() %}
+            <ul class="list-unstyled">
+                {% for msg in mensagens %}
+                    <li class="alert alert-danger">{{msg}}</li>
+                {% endfor %}
+            </ul>
+        {% endwith %}
+
+        <h1>Faça seu login</h1>
+        <form action="/autenticar" method ="POST">
+            <label>Nome de Usuario</label>
+            <input type="text" class="form-control" name="usuario" required>
+            <label>Senha:</label>
+            <input type="password" class="form-control" name="senha" required>
+
+            <button class="btn btn-primary" type="submit">Entrar</button>
+
+        </form>
+    </div>
+</body>
+</html>

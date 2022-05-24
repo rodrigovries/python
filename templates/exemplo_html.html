@@ -1,0 +1,101 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{titulo}}</title>
+    <!-- estilo css -->
+    <style>
+        #imagem {
+            width: 600px;
+        }
+    </style>
+</head>
+<body onload="autoTrocar(); autoMover(); autoOpacidade()">
+    <h1>Titulo h1</h1>
+    <h2>Titulo h2</h2>
+    <h3>Titulo h3</h3>
+    <h4>Titulo h4</h4>
+    <h5>Titulo h5</h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet aperiam aspernatur beatae consectetur error maxime modi nisi nulla sapiente similique. Alias consequuntur excepturi illo illum minima molestiae nobis, odio repellat.</p>
+    <hr>
+    <img id="imagem" onclick="moverImagem()" src="https://softgraf.com/img/img1.jpg" alt="">
+
+    <script>
+        //console.log('Hello World');
+        let indImg = 1;
+        let margem = 0;
+        let opacidade = 1;
+        let reduzir = true;
+
+        function contadorFor(){
+            for (i=0; i<10; i++){
+                console.log(i)
+            }
+        }
+
+        function contadorWhile(){
+            let i=0;
+            do{
+                console.log(i++)
+            } while (i<10);
+        }
+
+        //contadorFor();
+        //contadorWhile();
+
+        function trocarImagem(){
+            let imagem = document.getElementById('imagem');
+            indImg++;
+            if (indImg > 7){
+                indImg = 1;
+            }
+            imagem.src = "https://softgraf.com/img/img" + indImg + ".jpg";
+        }
+
+         const autoTrocar = () => {
+                setInterval("trocarImagem()", 500)
+         }
+
+         const moverImagem = () => {
+            let imagem = document.getElementById('imagem');
+            margem += 10;
+            if (margem > window.innerWidth){
+                margem = imagem.width*-1;
+            }
+            imagem.style.marginLeft = margem;
+         }
+
+         const autoMover = () => {
+            setInterval("moverImagem()", 20);
+         }
+
+         const mudarOpacidade = () =>{
+            let imagem = document.getElementById('imagem');
+
+            if (reduzir) {
+                opacidade -= 0.1;
+            } else {
+                opacidade += 0.1;
+            }
+
+            if (opacidade <= 0.1) {
+                reduzir = false;
+            }
+            else if (opacidade >=1){
+                reduzir = true;
+            }
+            imagem.style.opacity = opacidade;
+         }
+
+         const autoOpacidade = () =>{
+            setInterval('mudarOpacidade()', 100);
+         }
+
+    </script>
+
+</body>
+</html>
+
+
